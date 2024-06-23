@@ -8,34 +8,34 @@
 </head>
 <body>
     <div class="container">
-        <form action="{{ route('store') }}" method="POST">
+        <form action="{{ route('post.store') }}" method="POST">
         @csrf
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" value="{{ old('title') }}">
+            <label for="title">Titulo</label>
+            <input type="text" id="title" name="title" required>
 
             <label for="slug">Slug</label>
-            <input type="text" name="slug" id="slug" value="{{ old('slug') }}">
+            <input type="text" id="slug" name="slug" required>
 
-            <label for="content">Content</label>
-            <textarea name="content" id="content">{{ old('content') }}</textarea>
+            <label for="content">Contenido</label>
+            <textarea  id="content" name="content" required></textarea>
 
             <label for="category_id">Selecciona una categoría:</label>
             <select name="category_id" id="category_id">
                 @foreach($categories as $id => $titulo)
-                    <option value="{{ $id }}">{{ $id }}</option>
+                    <option value="{{ $titulo }}">{{ $id }}</option>
                 @endforeach
             </select>
 
-            <label for="description">Description</label>
-            <textarea name="description" id="description">{{ old('description') }}</textarea>
+            <label for="description">Descripción</label>
+            <textarea id="description" name="description" required></textarea>
 
-            <label for="posted">Posted</label>
+            <label for="posted">Postear</label>
             <select name="posted" id="posted">
                 <option value="not">Not</option>
                 <option value="yes">Yes</option>
             </select>
 
-            <button type="submit">Send</button>
+            <button type="submit">Enviar</button>
         </form>
     </div>
 </body>

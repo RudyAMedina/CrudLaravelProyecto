@@ -14,7 +14,8 @@ class ControladorCrud extends Controller
      */
     public function index()
     {
-        
+        $postss= ModeloCrud::all();
+        return view('post.index', compact('postss'));
     }
 
     /**
@@ -30,9 +31,10 @@ class ControladorCrud extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $validated = $request->validate([
+        //dd($request);
+        $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'content' => 'required|string',
@@ -40,19 +42,16 @@ class ControladorCrud extends Controller
             'description' => 'nullable|string',
             'posted' => 'required|string|in:not,yes',
         ]);
-
-        // Crear una nueva instancia de Post y asignar los valores validados
-        $post = new Post;
-        $post->title = $validated['title'];
-        $post->slug = $validated['slug'];
-        $post->content = $validated['content'];
-        $post->category_id = $validated['category_id'];
-        $post->description = $validated['description'] ?? ''; // En caso de que sea nulo
-        $post->posted = $validated['posted'];
-        $post->save();
+        
+        try {
+            ModeloCrud::create($request->all());
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => $e->getMessage()]);
+        }
 
         // Redireccionar a la lista de posts
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')
+                         ->with('success', 'Agregado correctamente.');
     }
 
     /**
