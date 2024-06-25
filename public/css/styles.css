@@ -46,7 +46,7 @@ form button:hover {
 }
 
 
-.container {
+.container{
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
@@ -54,6 +54,7 @@ form button:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Estilo para la tabla */
 .table {
@@ -121,4 +122,21 @@ form {
     border: 1px solid transparent;
     border-radius: 4px;
     border-color: #bce8f1;
+}
+
+/* Estilo para barra de navegacion */
+.navbar {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 10px;
+}
+.navbar a:hover {
+    text-decoration: underline;
 }

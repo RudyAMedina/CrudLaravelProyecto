@@ -10,6 +10,6 @@ Route::get('/', function () {
 });
 
 
-Route::resource('post', ControladorCrud::class);
-
+Route::resource('posts', ControladorCrud::class);
+Route::put('posts/{post}', [ControladorCrud::class, 'update']);
 Route::resource('categories', CategoryController::class);

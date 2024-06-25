@@ -13,7 +13,7 @@
             <label for="descripcion">Descripción</label>
             <input type="text" class="form-control" id="descripcion" name="descripcion" required>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
 @endsection

@@ -37,5 +37,11 @@
             @endforeach
         </tbody>
     </table>
+    <br>
+        @if($categories->count())
+            {{ $categories->links('vendor.pagination.semantic-ui') }}
+        @else
+            <p>No hay posts disponibles.</p>
+        @endif
 </div>
 @endsection

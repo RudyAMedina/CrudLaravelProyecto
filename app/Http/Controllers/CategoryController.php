@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Categorias::all();
+        $categories = Categorias::paginate(2);
         return view('categories.index', compact('categories'));
     }
 
@@ -42,6 +42,7 @@ class CategoryController extends Controller
 
     public function edit(Categorias $category)
     {
+        dd($category);
         return view('categories.edit', compact('category'));
     }
 
